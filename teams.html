@@ -8,50 +8,201 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .team-card {
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 15px;
+      padding: 20px 0;
+      margin-bottom: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .team-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Team colors */
+    .Coimbatore {
+      background-color: #0076fe;
+    }
+
+    .Chennai {
+      background-color: #ffdb19;
+      color: #000;
+    }
+
+    .Thoothukudi {
+      background-color: #8b60f8;
+    }
+
+    .Kanyakumari {
+      background-color: #e51e0b;
+      color: #000;
+    }
+
+    .Vellore {
+      background-color: #374550;
+    }
+
+    .Madurai {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    .Ramanathapuram {
+      background-color: #b565a7;
+    }
+
+    .Sivagangai {
+      background-color: #d66262;
+    }
+
+    .Namakkal {
+      background-color: #385110;
+    }
+
+    .Krishnagiri {
+      background-color: #203838;
+    }
+
+    .Tiruppur {
+      background-color: #d1b48c;
+      color: #000;
+    }
+
+    .Dharmapuri {
+      background-color: #894c39;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-back {
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+
+    .btn-back:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Modal rounded & shadow */
+    .modal-content {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      border: none;
+    }
+
+    /* Modal header gradient & title style */
+    .modal-header {
+      background: linear-gradient(135deg, #e73a05, #ed8e53);
+      color: #fff;
+      border-bottom: none;
+      padding: 15px 20px;
+    }
+
+    .modal-title {
+      font-weight: 700;
+      font-size: 18px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Close button style */
+    .modal-header .btn-close {
+      filter: brightness(0) invert(1);
+      opacity: 1;
+      transition: 0.3s;
+    }
+
+    .modal-header .btn-close:hover {
+      transform: scale(1.2);
+    }
+
+    /* Modal body style */
+    .modal-body {
+      background: #f8f9fa;
+      padding: 20px;
+      border-top: 1px solid #dee2e6;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Team image styling */
+    #teamImage {
+      max-width: 100%;
+      max-height: 400px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s;
+    }
+
+    #teamImage:hover {
+      transform: scale(1.03);
+    }
+  </style>
 </head>
 
-<body class="bg-primary">
+<body>
 
-  <!-- Main Layout -->
-  <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card bg-danger w-100 h-100">
-      <div class="card-body">
-         <div class="mb-3">
-          <a href="index.html" class="btn btn-light btn-sm">
-            ← Back
-          </a>
-        </div>
+  <div class="container py-4">
 
-        <h2 class="text-center text-white mb-4">Playing Teams</h2>
+    <!-- Back Button -->
+    <div class="text-start">
+      <a href="index.html" class="btn btn-back btn-sm">
+        ← Back
+      </a>
+    </div>
 
-        <div class="container">
-          <div class="row g-3">
+    <!-- Title -->
+    <h2>Championship Lineup</h2>
 
-            <!-- Left Column -->
-            <div class="col-6">
-              <div class="card text-center mb-3 team-card" data-team="Coimbatore">Coimbatore</div>
-              <div class="card text-center mb-3 team-card" data-team="Chennai">Chennai</div>
-              <div class="card text-center mb-3 team-card" data-team="Thoothukudi">Thoothukudi</div>
-              <div class="card text-center mb-3 team-card" data-team="Kanyakumari">Kanyakumari</div>
-              <div class="card text-center mb-3 team-card" data-team="Vellore">Vellore</div>
-              <div class="card text-center mb-3 team-card" data-team="Madurai">Madurai</div>
-            </div>
+    <!-- Teams Grid -->
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-6">
+        <div class="team-card Coimbatore" data-team="Coimbatore">Coimbatore</div>
+        <div class="team-card Chennai" data-team="Chennai">Chennai</div>
+        <div class="team-card Thoothukudi" data-team="Thoothukudi">Thoothukudi</div>
+        <div class="team-card Kanyakumari" data-team="Kanyakumari">Kanyakumari</div>
+        <div class="team-card Vellore" data-team="Vellore">Vellore</div>
+        <div class="team-card Madurai" data-team="Madurai">Madurai</div>
+      </div>
 
-            <!-- Right Column -->
-            <div class="col-6">
-              <div class="card text-center mb-3 team-card" data-team="Ramanathapuram">Ramanathapuram</div>
-              <div class="card text-center mb-3 team-card" data-team="Sivagangai">Sivagangai</div>
-              <div class="card text-center mb-3 team-card" data-team="Namakkal">Namakkal</div>
-              <div class="card text-center mb-3 team-card" data-team="Krishnagiri">Krishnagiri</div>
-              <div class="card text-center mb-3 team-card" data-team="Tiruppur">Tiruppur</div>
-              <div class="card text-center mb-3 team-card" data-team="Dharmapuri">Dharmapuri</div>
-            </div>
-
-          </div>
-        </div>
-
+      <!-- Right Column -->
+      <div class="col-6">
+        <div class="team-card Ramanathapuram" data-team="Ramanathapuram">Ramanathapuram</div>
+        <div class="team-card Sivagangai" data-team="Sivagangai">Sivagangai</div>
+        <div class="team-card Namakkal" data-team="Namakkal">Namakkal</div>
+        <div class="team-card Krishnagiri" data-team="Krishnagiri">Krishnagiri</div>
+        <div class="team-card Tiruppur" data-team="Tiruppur">Tiruppur</div>
+        <div class="team-card Dharmapuri" data-team="Dharmapuri">Dharmapuri</div>
       </div>
     </div>
+
   </div>
 
   <!-- Modal -->
@@ -84,25 +235,24 @@
       Thoothukudi: "images/thoothukudi-players.jpg",
       Kanyakumari: "images/kanyakumari-players.jpg",
       Vellore: "images/vellore-players.jpg",
-      Ramanathapuram: "images/ramanathapuram-players.jpg",
+      Ramanathapuram: "images/ramanad-players.jpg",
       Sivagangai: "images/sivagangai-players.jpg",
       Namakkal: "images/namakkal-players.jpg",
       Krishnagiri: "images/krishnagiri-players.jpg",
-      Tiruppur: "images/tiruppur-players.jpg",
+      Tiruppur: "images/tiruppur.jpg",
       Dharmapuri: "images/dharmapuri-players.jpg"
     };
 
     document.querySelectorAll(".team-card").forEach(card => {
       card.addEventListener("click", () => {
         const teamName = card.dataset.team;
-
-        document.getElementById("modalTitle").innerText = teamName + " Players";
+        document.getElementById("modalTitle").innerText = teamName;
         document.getElementById("teamImage").src = teamImages[teamName];
-
         new bootstrap.Modal(document.getElementById("playersModal")).show();
       });
     });
   </script>
 
 </body>
+
 </html>
