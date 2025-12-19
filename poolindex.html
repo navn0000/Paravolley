@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Covai Challengers Trophy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+<style>
+/* Pool Containers */
+.pool-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 25px 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  height: 100%;
+}
+
+/* Pool Headers */
+.pool-title {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
+}
+
+/* Pool A Style */
+.pool-a .pool-title {
+  color: #0076fe;
+  border-bottom: 2px solid #0076fe;
+  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
+}
+
+/* Pool B Style */
+.pool-b .pool-title {
+  color: #0076fe;
+  border-bottom: 2px solid #0076fe;
+  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
+}
+
+/* Team card enhancement inside pools */
+.pool-card .team-card {
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pool-card .team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+/* Navbar */
+.cherry-navbar {
+  background-color: #0076fe;
+  z-index: 1050;
+}
+
+.cherry-navbar .navbar-brand,
+.cherry-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Toggler icon */
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile spacing fix */
+@media (max-width: 768px) {
+  .pool-card {
+    margin-bottom: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark cherry-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CCT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#teams">Teams</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pool">Pool</a></li>
+        <li class="nav-item"><a class="nav-link" href="#fixtures">Fixtures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Pools Section -->
+<div class="row mt-4 g-4 p-4">
+
+  <!-- POOL A -->
+  <div class="col-6">
+    <div class="pool-card pool-a">
+      <h3 class="pool-title">POOL A</h3>
+
+      <div class="team-card Coimbatore" data-team="Coimbatore">Coimbatore</div>
+      <div class="team-card Chennai" data-team="Chennai">Chennai</div>
+      <div class="team-card Thoothukudi" data-team="Thoothukudi">Tuticorin</div>
+      <div class="team-card Kanyakumari" data-team="Kanyakumari">Kanyakumari</div>
+      <div class="team-card Vellore" data-team="Vellore">Vellore</div>
+      <div class="team-card Madurai" data-team="Madurai">Madurai</div>
+    </div>
+  </div>
+
+  <!-- POOL B -->
+  <div class="col-6">
+    <div class="pool-card pool-b">
+      <h3 class="pool-title">POOL B</h3>
+
+      <div class="team-card Ramanathapuram" data-team="Ramanathapuram">Ramanathapuram</div>
+      <div class="team-card Sivagangai" data-team="Sivagangai">Sivagangai</div>
+      <div class="team-card Namakkal" data-team="Namakkal">Namakkal</div>
+      <div class="team-card Krishnagiri" data-team="Krishnagiri">Krishnagiri</div>
+      <div class="team-card Tiruppur" data-team="Tiruppur">Tirupur</div>
+      <div class="team-card Dharmapuri" data-team="Dharmapuri">Dharmapuri</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="playersModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img id="teamImage" class="img-fluid rounded" alt="Team Players">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+const teamImages = {
+  Coimbatore: "images/coimbatore-players.jpg",
+  Chennai: "images/chennai-players.jpg",
+  Madurai: "images/madurai-players.jpg",
+  Thoothukudi: "images/thoothukudi-players.jpg",
+  Kanyakumari: "images/kanyakumari-players.jpg",
+  Vellore: "images/vellore-players.jpg",
+  Ramanathapuram: "images/ramanad-players.jpg",
+  Sivagangai: "images/sivagangai-players.jpg",
+  Namakkal: "images/namakkal-players.jpg",
+  Krishnagiri: "images/krishnagiri-players.jpg",
+  Tiruppur: "images/tiruppur.jpg",
+  Dharmapuri: "images/dharmapuri-players.jpg"
+};
+
+document.querySelectorAll(".team-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const teamName = card.dataset.team;
+    document.getElementById("modalTitle").innerText = teamName;
+    document.getElementById("teamImage").src = teamImages[teamName];
+    new bootstrap.Modal(document.getElementById("playersModal")).show();
+  });
+});
+</script>
+
+</body>
+
+</html>
