@@ -176,20 +176,27 @@ body {
 .all-matches-section {
   padding: clamp(40px, 6vw, 70px) 15px;
 }
-
-/* Grid */
-/* ALL MATCHES GRID */
 .all-matches-grid {
   display: grid;
   gap: 14px;
   max-width: 1400px;
   margin: auto;
+
+  /* DEFAULT (mobile-first) */
+  grid-template-columns: 1fr;
 }
+
+
+/* =========================
+   ALL MATCHES GRID
+========================= */
+
+
 
 /* 🖥️ Desktop & Large screens → 6 per row */
 @media (min-width: 1200px) {
   .all-matches-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -214,34 +221,96 @@ body {
   }
 }
 
+/* =========================
+   MATCH TILE
+========================= */
 
-/* Tile */
 .match-tile {
+  position: relative; /* REQUIRED for badge */
   background: linear-gradient(
     145deg,
-    rgba(255,255,255,.14),
-    rgba(255,255,255,.04)
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.04)
   );
   border-radius: 14px;
-  padding: 12px 10px;
-  border: 1px solid rgba(255,255,255,.15);
-  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+  padding: 14px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
   text-align: center;
-  transition: .35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+.match-tile {
+  position: relative;
+  padding: 28px 16px 16px; /* increased top padding to make space for badge */
+  border-radius: 12px;
+  background: #1e1e1e; /* match your dark UI */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
 .match-tile:hover {
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
 }
 
-/* Match number */
+/* Disable hover zoom on mobile */
+@media (max-width: 768px) {
+  .match-tile:hover {
+    transform: none;
+  }
+}
+
+/* =========================
+   MATCH NUMBER
+========================= */
+
 .match-no {
   display: block;
-font-size: 0.9rem;
+  font-size: 0.9rem;
   letter-spacing: 1.4px;
   color: #00c6ff;
   font-weight: 800;
   margin-bottom: 6px;
+}
+
+/* =========================
+   UPCOMING BADGE (SIMPLE)
+========================= */
+
+
+
+/* UPCOMING BADGE */
+.badge-upcoming {
+  position: absolute;
+  top: 0; /* start at top */
+  left: 50%;
+  transform: translate(-50%, -50%); /* move it above the card */
+  background: #ff9800;
+  color: #fff;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* UPCOMING BADGE */
+.badge-completed {
+  position: absolute;
+  top: 0; /* start at top */
+  left: 50%;
+  transform: translate(-50%, -50%); /* move it above the card */
+  background: green;
+  color: #fff;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  z-index: 10;
 }
 
 /* Teams row */
