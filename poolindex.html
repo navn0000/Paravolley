@@ -8,83 +8,143 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
 <style>
-/* Pool Containers */
-.pool-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 25px;
-  padding: 25px 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  height: 100%;
+:root {
+  --primary: #00aaff;
+  --secondary: #00ffd5;
+  --dark-bg: #060b1a;
+  --glass: rgba(255,255,255,0.08);
+  --border-glass: rgba(255,255,255,0.15);
 }
 
-/* Pool Headers */
-.pool-title {
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
+/* Global */
+body {
+  background: radial-gradient(circle at top, #0b1d3a, #030712 60%);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  min-height: 100vh;
 }
 
-/* Pool A Style */
-.pool-a .pool-title {
-  color: #0076fe;
-  border-bottom: 2px solid #0076fe;
-  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
-}
-
-/* Pool B Style */
-.pool-b .pool-title {
-  color: #0076fe;
-  border-bottom: 2px solid #0076fe;
-  text-shadow: 0 0 15px rgba(0, 118, 254, 0.8);
-}
-
-/* Team card enhancement inside pools */
-.pool-card .team-card {
-  margin-bottom: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.pool-card .team-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-}
-
-/* Navbar */
+/* NAVBAR */
 .cherry-navbar {
-  background-color: #0076fe;
-  z-index: 1050;
+  background: linear-gradient(90deg, #0076fe, #00d4ff);
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
 }
-
-.cherry-navbar .navbar-brand,
-.cherry-navbar .nav-link {
-  color: #ffffff !important;
+.navbar-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+}
+.nav-link {
   font-weight: 600;
+  margin-left: 12px;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: .3s;
+}
+.nav-link:hover::after {
+  width: 100%;
 }
 
-/* Toggler icon */
-.navbar-dark .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.7);
+/* POOL CARD */
+.pool-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: 30px 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.8);
+  border: 1px solid var(--border-glass);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.pool-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 35px 80px rgba(0,170,255,.25);
 }
 
-/* Mobile spacing fix */
+/* POOL TITLE */
+.pool-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  letter-spacing: 3px;
+  color: var(--secondary);
+  border-bottom: 2px solid rgba(0,255,213,.6);
+  text-shadow: 0 0 18px rgba(0,255,213,.9);
+}
+
+/* TEAM CARD */
+.team-card {
+  background: linear-gradient(120deg, rgba(0,170,255,.15), rgba(0,255,213,.08));
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  border: 1px solid var(--border-glass);
+  cursor: pointer;
+  transition: all .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.team-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: translateX(-100%);
+}
+.team-card:hover::before {
+  transform: translateX(100%);
+  transition: .6s;
+}
+.team-card:hover {
+  transform: translateX(6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,255,213,.35);
+}
+
+/* MODAL */
+.modal-content {
+  background: linear-gradient(160deg, #0b1d3a, #020617);
+  border-radius: 25px;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 40px 80px rgba(0,0,0,.9);
+}
+.modal-title {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+.modal-body img {
+  box-shadow: 0 15px 50px rgba(0,170,255,.6);
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
+  .col-6 {
+    width: 100%;
+  }
   .pool-card {
-    margin-bottom: 20px;
+    padding: 26px 18px;
+  }
+  .team-card {
+    font-size: 12px;
+    padding: 16px;
   }
 }
 </style>
+
 </head>
 
 <body>
@@ -97,14 +157,17 @@
     </button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#teams">Teams</a></li>
-        <li class="nav-item"><a class="nav-link" href="#pool">Pool</a></li>
-        <li class="nav-item"><a class="nav-link" href="#fixtures">Fixtures</a></li>
+          <li class="nav-item"><a class="nav-link " href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./teams.html">Teams</a></li>
+          <li class="nav-item"><a class="nav-link active" href="./poolindex.html">Pool</a></li>
+          <li class="nav-item"><a class="nav-link" href="./fixtures.html">Fixtures</a></li>
       </ul>
     </div>
   </div>
 </nav>
+ <div class="text-start mt-2 p-2">
+      <a href="index.html" class="btn btn-back btn-sm btn-secondary">← Back</a>
+    </div>  
 
 <!-- Pools Section -->
 <div class="row mt-4 g-4 p-4">
@@ -118,7 +181,7 @@
       <div class="team-card Chennai" data-team="Chennai">Chennai</div>
       <div class="team-card Thoothukudi" data-team="Thoothukudi">Tuticorin</div>
       <div class="team-card Madurai" data-team="Madurai">Madurai</div>
-      <div class="team-card Ramanathapuram" data-team="Ramanathapuram">Ramanad</div>
+      <div class="team-card Ramnad" data-team="Ramnad">Ramanad</div>
       <div class="team-card Sivagangai" data-team="Sivagangai">Sivagangai</div>
     </div>
   </div>
@@ -167,7 +230,7 @@ const teamImages = {
   Thoothukudi: "images/thoothukudi-players.jpg",
   Kanyakumari: "images/kanyakumari-players.jpg",
   Vellore: "images/vellore-players.jpg",
-  Ramanathapuram: "images/ramanad-players.jpg",
+  Ramnad: "images/ramanad-players.jpg",
   Sivagangai: "images/sivagangai-players.jpg",
   Namakkal: "images/namakkal-players.jpg",
   Krishnagiri: "images/krishnagiri-players.jpg",

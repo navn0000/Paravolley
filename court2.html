@@ -22,9 +22,17 @@
       margin: 0;
     }
 
+    /* ================= COURT 2 RED THEME ================= */
+    :root {
+      --red-main: #ff2e2e;
+      --red-light: #ff6a6a;
+      --red-glow: rgba(255, 46, 46, 0.9);
+      --red-bg: rgba(255, 46, 46, 0.12);
+    }
+
     /* Navbar */
     .cherry-navbar {
-      background: #0076fe;
+      background: linear-gradient(135deg, var(--red-main), #b30000);
       box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
 
@@ -45,7 +53,8 @@
       font-weight: 900;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #0076fe;
+      color: var(--red-main);
+      text-shadow: 0 0 25px var(--red-glow);
     }
 
     .page-subtitle {
@@ -61,37 +70,78 @@
       padding: 50px 15px 80px;
     }
 
-    .court-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
-      color: #0076fe;
-    }
-
     /* Match Card */
     .match-card {
-      background: rgba(0,118,254,0.05);
-      border-radius: 16px;
-      padding: 16px 20px;
+      position: relative;
+      background: linear-gradient(145deg, rgba(255,46,46,.18), rgba(255,46,46,.04));
+      border-radius: 20px;
+      padding: 28px 18px 22px;
       text-align: center;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      transition: 0.3s ease;
-      height: 100%;
+      letter-spacing: .5px;
+      box-shadow: 0 15px 45px rgba(0,0,0,.7);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: all .35s ease;
+      overflow: hidden;
+    }
+
+    .match-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.2), transparent);
+      transform: translateX(-100%);
+    }
+
+    .match-card:hover::after {
+      transform: translateX(100%);
+      transition: .6s;
     }
 
     .match-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 35px rgba(0,118,254,0.8);
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 28px 70px var(--red-glow);
+    }
+
+    /* Match Number Badge */
+    .match-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, var(--red-main), var(--red-light));
+      color: #fff;
+      font-weight: 900;
+      padding: 6px 14px;
+      font-size: .75rem;
+      border-radius: 30px;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+
+    /* Teams */
+    .team-name {
+      font-size: 1.05rem;
+      font-weight: 800;
     }
 
     .vs {
-      color: #0076fe;
-      margin: 0 8px;
-      font-weight: 800;
+      display: block;
+      margin: 8px 0;
+      font-size: .85rem;
+      letter-spacing: 2px;
+      color: var(--red-light);
+    }
+
+    /* Court Chip */
+    .court-chip {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 4px 14px;
+      font-size: .75rem;
+      border-radius: 20px;
+      background: rgba(255,46,46,.25);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #ffd0d0;
     }
 
     /* Footer */
@@ -109,9 +159,65 @@
     @media (max-width: 576px) {
       .match-card {
         font-size: 0.9rem;
-        padding: 14px;
+        padding: 18px;
       }
     }
+    /* =========================
+   MOBILE RESPONSIVE (ALL COURTS)
+   ========================= */
+@media (max-width: 576px) {
+
+  /* Page Header */
+  .page-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Match Card */
+  .match-card {
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+  }
+
+  /* Match Badge */
+  .match-badge {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    top: 10px;
+    left: 10px;
+  }
+
+  /* Team Names */
+  .team-name {
+    font-size: 0.9rem;
+  }
+
+  /* VS Text */
+  .vs {
+    font-size: 0.7rem;
+    margin: 6px 0;
+    letter-spacing: 1.5px;
+  }
+
+  /* Court Chip */
+  .court-chip {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+    margin-top: 10px;
+  }
+
+  /* Grid spacing */
+  .row.g-4 {
+    --bs-gutter-y: 1rem;
+    --bs-gutter-x: 1rem;
+  }
+}
+
   </style>
 </head>
 
@@ -124,85 +230,42 @@
   </div>
 </nav>
 
-  <div class="text-start mt-2 p-2">
-      <a href="index.html" class="btn btn-back btn-sm btn-secondary">← Back</a>
-    </div>
+<div class="text-start mt-2 p-2">
+  <a href="fixtures.html" class="btn btn-sm btn-secondary">← Back</a>
+</div>
 
 <!-- HEADER -->
 <section class="page-header">
   <h1 class="page-title">Court 2 Fixtures</h1>
   <p class="page-subtitle">
-    Explore all the matches scheduled on Court 2 for the Covai Challengers Trophy.
+    High-intensity clashes scheduled on Court 2 of the Covai Challengers Trophy.
   </p>
 </section>
 
 <!-- FIXTURES -->
 <section class="fixtures-section">
   <div class="container">
-
-    <h2 class="court-title">Court Number 2 Matches</h2>
-
     <div class="row g-4">
 
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Coimbatore <span class="vs">vs</span> Sivagangai</div>
-      </div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 2</span><div class="team-name">Madurai</div><span class="vs">VS</span><div class="team-name">Tuticorin</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 4</span><div class="team-name">Krishnagiri</div><span class="vs">VS</span><div class="team-name">Dharmapuri</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 6</span><div class="team-name">Sivagangai</div><span class="vs">VS</span><div class="team-name">Chennai</div><div class="court-chip">Court 2</div></div></div>
 
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Coimbatore <span class="vs">vs</span> Chennai</div>
-      </div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 8</span><div class="team-name">Madurai</div><span class="vs">VS</span><div class="team-name">Ramnad</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 10</span><div class="team-name">Dharmapuri</div><span class="vs">VS</span><div class="team-name">Tirupur</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 12</span><div class="team-name">Sivagangai</div><span class="vs">VS</span><div class="team-name">Madurai</div><div class="court-chip">Court 2</div></div></div>
 
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Chennai <span class="vs">vs</span> Ramanathapuram</div>
-      </div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 14</span><div class="team-name">Coimbatore</div><span class="vs">VS</span><div class="team-name">Chennai</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 16</span><div class="team-name">Kanyakumari</div><span class="vs">VS</span><div class="team-name">Dharmapuri</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 18</span><div class="team-name">Chennai</div><span class="vs">VS</span><div class="team-name">Ramnad</div><div class="court-chip">Court 2</div></div></div>
 
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Chennai <span class="vs">vs</span> Tuticorin</div>
-      </div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 20</span><div class="team-name">Krishnagiri</div><span class="vs">VS</span><div class="team-name">Namakkal</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 22</span><div class="team-name">Chennai</div><span class="vs">VS</span><div class="team-name">Tuticorin</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 24</span><div class="team-name">Kanyakumari</div><span class="vs">VS</span><div class="team-name">Tirupur</div><div class="court-chip">Court 2</div></div></div>
 
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Kanyakumari <span class="vs">vs</span> Tirupur</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Kanyakumari <span class="vs">vs</span> Dharmapuri</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Krishnagiri <span class="vs">vs</span> Dharmapuri</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Krishnagiri <span class="vs">vs</span> Namakkal</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Vellore <span class="vs">vs</span> Tirupur</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Namakkal <span class="vs">vs</span> Kanyakumari</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Namakkal <span class="vs">vs</span> Dharmapuri</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Tirupur <span class="vs">vs</span> Dharmapuri</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Sivagangai <span class="vs">vs</span> Madurai</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Madurai <span class="vs">vs</span> Ramanathapuram</div>
-      </div>
-
-      <div class="col-md-4 col-sm-6">
-        <div class="match-card">Madurai <span class="vs">vs</span> Tuticorin</div>
-      </div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 26</span><div class="team-name">Chennai</div><span class="vs">VS</span><div class="team-name">Madurai</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 28</span><div class="team-name">Coimbatore</div><span class="vs">VS</span><div class="team-name">Sivagangai</div><div class="court-chip">Court 2</div></div></div>
+      <div class="col-md-4 col-sm-6"><div class="match-card"><span class="match-badge">MATCH 30</span><div class="team-name">Vellore</div><span class="vs">VS</span><div class="team-name">Tirupur</div><div class="court-chip">Court 2</div></div></div>
 
     </div>
   </div>

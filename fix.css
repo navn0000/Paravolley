@@ -1,0 +1,423 @@
+/* =========================
+   DESIGN SYSTEM
+========================= */
+:root {
+  --bg-main: radial-gradient(circle at top, #111, #000);
+  --primary: #00c6ff;
+  --primary-dark: #003d9f;
+  --danger: #ff4d4d;
+  --text-main: #ffffff;
+  --text-muted: #b5b5b5;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.5);
+  --shadow-strong: 0 25px 60px rgba(0,0,0,.7);
+
+  --transition-fast: .25s ease;
+  --transition-smooth: .4s cubic-bezier(.25,.8,.25,1);
+}
+
+/* =========================
+   BASE RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.cherry-navbar {
+  background: linear-gradient(135deg, #0076fe, var(--primary-dark));
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+.page-header {
+  padding: clamp(30px, 6vw, 60px) 15px 10px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  margin-top: 12px;
+  max-width: 720px;
+  margin-inline: auto;
+  color: var(--text-muted);
+  font-size: clamp(.9rem, 2.5vw, 1rem);
+}
+
+/* =========================
+   COURT CARDS
+========================= */
+.court-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 4vw, 40px);
+  padding: clamp(30px, 6vw, 60px) 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.court-card {
+  height: clamp(120px, 22vw, 180px);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 900;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: var(--shadow-strong);
+  transition: var(--transition-smooth);
+  position: relative;
+  text-align: center;
+}
+
+.court-card:hover {
+  transform: translateY(-8px) scale(1.04);
+}
+
+.court1 {
+  background: linear-gradient(145deg, rgba(0,118,254,.35), rgba(0,118,254,.08));
+  color: #d6ecff;
+}
+
+.court2 {
+  background: linear-gradient(145deg, rgba(225,6,0,.35), rgba(225,6,0,.08));
+  color: #ffd6d6;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  margin-bottom: clamp(16px, 4vw, 30px);
+  color: var(--primary);
+}
+
+/* =========================
+   TEAM GRID
+========================= */
+.team-section {
+  padding: clamp(40px, 6vw, 70px) 15px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: clamp(12px, 3vw, 22px);
+  max-width: 1100px;
+  margin: auto;
+}
+
+.team-tile {
+  padding: clamp(12px, 3vw, 18px);
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.team-tile:nth-child(odd) {
+  background: linear-gradient(145deg, rgba(0,118,254,.4), rgba(0,118,254,.15));
+}
+
+.team-tile:nth-child(even) {
+  background: linear-gradient(145deg, rgba(225,6,0,.4), rgba(225,6,0,.15));
+}
+
+.team-tile:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* =========================
+   ALL MATCHES GRID
+========================= */
+/* =========================
+   ALL MATCHES – PREMIUM UI
+========================= */
+
+.all-matches-section {
+  padding: clamp(40px, 6vw, 70px) 15px;
+}
+
+/* Grid */
+/* ALL MATCHES GRID */
+.all-matches-grid {
+  display: grid;
+  gap: 14px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* 🖥️ Desktop & Large screens → 6 per row */
+@media (min-width: 1200px) {
+  .all-matches-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* 💻 Laptop / Tablet landscape → 4 per row */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .all-matches-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 📱 Tablet / Large mobile → 2 per row */
+@media (min-width: 576px) and (max-width: 991px) {
+  .all-matches-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 📱 Mobile → 1 per row */
+@media (max-width: 575px) {
+  .all-matches-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Tile */
+.match-tile {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.14),
+    rgba(255,255,255,.04)
+  );
+  border-radius: 14px;
+  padding: 12px 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+  text-align: center;
+  transition: .35s ease;
+}
+
+.match-tile:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+/* Match number */
+.match-no {
+  display: block;
+  font-size: .6rem;
+  letter-spacing: 1.4px;
+  color: #00c6ff;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+/* Teams row */
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: clamp(.7rem, 2.5vw, .85rem);
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Team names */
+.teams span:not(.vs) {
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* VS */
+.teams .vs {
+  font-size: .65rem;
+  font-weight: 900;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+/* Mobile refinement */
+@media (max-width: 576px) {
+
+  .match-tile {
+    padding: 10px 8px;
+  }
+}
+
+/* =========================
+   MODAL
+========================= */
+.team-modal {
+  background: linear-gradient(145deg, #050b1f, #020617);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.match-list li {
+  background: rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.cct-footer {
+  background: #000;
+  padding: 20px 10px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .85rem;
+}
+
+
+/* =========================
+   KNOCKOUT SECTION (NEW)
+========================= */
+.knockout-section {
+  padding: clamp(50px, 8vw, 90px) 15px;
+}
+
+.knockout-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(20px, 5vw, 60px);
+  max-width: 1100px;
+  margin: auto;
+  align-items: center;
+}
+
+/* Columns */
+.knockout-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.knockout-column.center {
+  align-items: center;
+}
+
+/* Cards */
+.knockout-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.03)
+  );
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 22px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 20px 45px rgba(0,0,0,.6);
+  transition: .35s ease;
+}
+
+.knockout-card:hover {
+  transform: translateY(-6px) scale(1.04);
+}
+
+/* Stage Label */
+.stage {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #00c6ff;
+  margin-bottom: 10px;
+}
+
+/* VS */
+.vs {
+  font-size: .8rem;
+  font-weight: 900;
+  margin: 8px 0;
+  color: #aaa;
+}
+
+/* Headings */
+.knockout-card h4 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+}
+
+/* FINAL CARD */
+.final-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255,215,0,.45),
+    rgba(255,215,0,.15)
+  );
+  color: #fff;
+}
+
+.final-card .stage {
+  color: #ffd700;
+}
+
+.trophy {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+/* THIRD PLACE */
+.third-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255,80,80,.4),
+    rgba(255,80,80,.12)
+  );
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .knockout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .knockout-column.center {
+    order: -1;
+  }
+}

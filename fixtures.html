@@ -5,170 +5,407 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      font-family: 'Montserrat', sans-serif;
-      transition: all 0.3s ease;
-    }
-
-    body {
-      background: linear-gradient(135deg, #000000 0%, #101010 100%);
-      color: #fff;
-      margin: 0;
-    }
-
-    /* Navbar */
-    .cherry-navbar {
-      background: #0076fe;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
-
-    .navbar-brand {
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #fff !important;
-    }
-
-    /* Page Header */
-    .page-header {
-      padding: 90px 15px 50px;
-      text-align: center;
-    }
-
-    .page-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #0076fe;
-    }
-
-    .page-subtitle {
-      color: #ccc;
-      max-width: 700px;
-      margin: 15px auto 0;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    /* Court Cards */
-    .court-cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 50px 15px;
-    }
-
-    .court-card {
-      position: relative;
-      width: 280px;
-      height: 180px;
-      border-radius: 25px;
-      overflow: hidden;
-      cursor: pointer;
-      background: rgba(0, 118, 254, 0.05);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: #fff;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .court-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0,118,254,0.8);
-    }
-
-    .court-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(135deg, #0076fe, #00a0ff, #0099ff, #0076fe);
-      animation: rotate 8s linear infinite;
-      z-index: 0;
-      opacity: 0.3;
-    }
-
-    .court-card span {
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Footer */
-    .cct-footer {
-      background: #000;
-      padding: 20px 0;
-      color: #aaa;
-      font-size: 0.9rem;
-      letter-spacing: 0.6px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .court-cards {
-        gap: 20px;
-      }
-    }
-  </style>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fix.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark cherry-navbar">
+<nav class="navbar navbar-dark cherry-navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="./index.html">CCT</a>
+    <a class="navbar-brand" href="#">CCT</a>
   </div>
 </nav>
 
   <div class="text-start mt-2 p-2">
       <a href="index.html" class="btn btn-back btn-sm btn-secondary">← Back</a>
-    </div>  
+  </div>
 
-<!-- HEADER -->
+
+
+
 <section class="page-header">
   <h1 class="page-title">Fixtures</h1>
-  <p class="page-subtitle">
-    Select a court to see all matches. Experience the thrill of the Covai Challengers Trophy!
-  </p>
+  <p class="page-subtitle">Complete schedule of matches for the Covai Challengers Trophy</p>
 </section>
 
-<!-- COURT CARDS -->
+<!-- ALL MATCHES OVERVIEW -->
+<section class="all-matches-section">
+  <h2 class="section-title text-center">All Matches</h2>
+
+  <div class="all-matches-grid">
+
+    <div class="match-tile">
+      <span class="match-no">Match 1</span>
+      <div class="teams"><span>Kanyakumari</span><span class="vs">vs</span><span>Vellore</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 2</span>
+      <div class="teams"><span>Madurai</span><span class="vs">vs</span><span>Tuticorin</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 3</span>
+      <div class="teams"><span>Coimbatore</span><span class="vs">vs</span><span>Ramnad</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 4</span>
+      <div class="teams"><span>Krishnagiri</span><span class="vs">vs</span><span>Dharmapuri</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 5</span>
+      <div class="teams"><span>Namakkal</span><span class="vs">vs</span><span>Tiruppur</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 6</span>
+      <div class="teams"><span>Sivagangai</span><span class="vs">vs</span><span>Chennai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 7</span>
+      <div class="teams"><span>Kanyakumari</span><span class="vs">vs</span><span>Krishnagiri</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 8</span>
+      <div class="teams"><span>Madurai</span><span class="vs">vs</span><span>Ramnad</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 9</span>
+      <div class="teams"><span>Coimbatore</span><span class="vs">vs</span><span>Tuticorin</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 10</span>
+      <div class="teams"><span>Dharmapuri</span><span class="vs">vs</span><span>Tiruppur</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 11</span>
+      <div class="teams"><span>Vellore</span><span class="vs">vs</span><span>Namakkal</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 12</span>
+      <div class="teams"><span>Sivagangai</span><span class="vs">vs</span><span>Madurai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 13</span>
+      <div class="teams"><span>Ramnad</span><span class="vs">vs</span><span>Tuticorin</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 14</span>
+      <div class="teams"><span>Coimbatore</span><span class="vs">vs</span><span>Chennai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 15</span>
+      <div class="teams"><span>Krishnagiri</span><span class="vs">vs</span><span>Tiruppur</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 16</span>
+      <div class="teams"><span>Kanyakumari</span><span class="vs">vs</span><span>Dharmapuri</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 17</span>
+      <div class="teams"><span>Sivagangai</span><span class="vs">vs</span><span>Tuticorin</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 18</span>
+      <div class="teams"><span>Chennai</span><span class="vs">vs</span><span>Ramnad</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 19</span>
+      <div class="teams"><span>Coimbatore</span><span class="vs">vs</span><span>Madurai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 20</span>
+      <div class="teams"><span>Krishnagiri</span><span class="vs">vs</span><span>Namakkal</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 21</span>
+      <div class="teams"><span>Vellore</span><span class="vs">vs</span><span>Dharmapuri</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 22</span>
+      <div class="teams"><span>Chennai</span><span class="vs">vs</span><span>Tuticorin</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 23</span>
+      <div class="teams"><span>Ramnad</span><span class="vs">vs</span><span>Sivagangai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 24</span>
+      <div class="teams"><span>Kanyakumari</span><span class="vs">vs</span><span>Tiruppur</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 25</span>
+      <div class="teams"><span>Namakkal</span><span class="vs">vs</span><span>Dharmapuri</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 26</span>
+      <div class="teams"><span>Chennai</span><span class="vs">vs</span><span>Madurai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 27</span>
+      <div class="teams"><span>Krishnagiri</span><span class="vs">vs</span><span>Vellore</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 28</span>
+      <div class="teams"><span>Coimbatore</span><span class="vs">vs</span><span>Sivagangai</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 29</span>
+      <div class="teams"><span>Namakkal</span><span class="vs">vs</span><span>Kanyakumari</span></div>
+    </div>
+
+    <div class="match-tile">
+      <span class="match-no">Match 30</span>
+      <div class="teams"><span>Vellore</span><span class="vs">vs</span><span>Tiruppur</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SEMI FINAL & FINAL -->
+<section class="knockout-section">
+  <h2 class="section-title text-center mb-5">Knockout Stage</h2>
+
+  <div class="knockout-wrapper">
+
+    <!-- SEMIFINALS -->
+    <div class="knockout-column">
+      <div class="knockout-card">
+        <span class="stage">SEMIFINAL 1</span>
+        <h4>Pool A 1st</h4>
+        <div class="vs">VS</div>
+        <h4>Pool B 2nd</h4>
+      </div>
+
+      <div class="knockout-card">
+        <span class="stage">SEMIFINAL 2</span>
+        <h4>Pool A 2nd</h4>
+        <div class="vs">VS</div>
+        <h4>Pool B 1st</h4>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="knockout-column center">
+      <div class="knockout-card final-card">
+        <span class="stage">FINAL</span>
+        <div class="trophy">🏆</div>
+        <p>Winner SF1 <strong>vs</strong> Winner SF2</p>
+      </div>
+    </div>
+
+    <!-- THIRD PLACE -->
+    <div class="knockout-column">
+      <div class="knockout-card third-card">
+        <span class="stage">3rd / 4th PLACE</span>
+        <h4>Loser SF1</h4>
+        <div class="vs">VS</div>
+        <h4>Loser SF2</h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <h1 class="text-center mt-5 section-title ">Courts</h1>
+  <p class="page-subtitle text-center">Tap a court to view match details</p>
+
 <section class="court-cards">
-  <div class="court-card" onclick="window.location.href='court1.html'">
-    <span>Court 1</span>
-  </div>
-  <div class="court-card" onclick="window.location.href='court2.html'">
-    <span>Court 2</span>
+  
+  <div class="court-card court1" onclick="location.href='court1.html'"><span>Court 1</span></div>
+  <div class="court-card court2" onclick="location.href='court2.html'"><span>Court 2</span></div>
+</section>
+
+<section class="team-section">
+  <h2 class="section-title">Team Match Overview</h2>
+  <p class="page-subtitle text-center mb-5">Tap a team to view individual match details</p>
+
+  <div class="team-grid">
+    <div class="team-tile" data-team="Coimbatore">Coimbatore</div>
+    <div class="team-tile" data-team="Chennai">Chennai</div>
+    <div class="team-tile" data-team="Madurai">Madurai</div>
+    <div class="team-tile" data-team="Tuticorin">Tuticorin</div>
+    <div class="team-tile" data-team="Ramnad">Ramnad</div>
+    <div class="team-tile" data-team="Sivagangai">Sivagangai</div>
+    <div class="team-tile" data-team="Namakkal">Namakkal</div>
+    <div class="team-tile" data-team="Krishnagiri">Krishnagiri</div>
+    <div class="team-tile" data-team="Tiruppur">Tiruppur</div>
+    <div class="team-tile" data-team="Dharmapuri">Dharmapuri</div>
+    <div class="team-tile" data-team="Vellore">Vellore</div>
+    <div class="team-tile" data-team="Kanyakumari">Kanyakumari</div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="cct-footer">
-  © Para Volleyball Association of Coimbatore
-</footer>
+<!-- MODAL -->
+<div class="modal fade" id="teamModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content team-modal">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalTitle"></h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="match-list" id="matchList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="cct-footer">© Para Volleyball Association of Coimbatore</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+ const teamMatches = {
+  Kanyakumari: [
+    "🏐 Match 1 vs Vellore – Court 1",
+    "🏐 Match 7 vs Krishnagiri – Court 1",
+    "🏐 Match 16 vs Dharmapuri – Court 2",
+    "🏐 Match 24 vs Tiruppur – Court 2",
+    "🏐 Match 29 vs Namakkal – Court 1"
+  ],
+
+  Vellore: [
+    "🏐 Match 1 vs Kanyakumari – Court 1",
+    "🏐 Match 11 vs Namakkal – Court 1",
+    "🏐 Match 21 vs Dharmapuri – Court 1",
+    "🏐 Match 27 vs Krishnagiri – Court 1",
+    "🏐 Match 30 vs Tiruppur – Court 2"
+  ],
+
+  Coimbatore: [
+    "🏐 Match 3 vs Ramnad – Court 1",
+    "🏐 Match 9 vs Tuticorin – Court 1",
+    "🏐 Match 14 vs Chennai – Court 2",
+    "🏐 Match 19 vs Madurai – Court 1",
+    "🏐 Match 28 vs Sivagangai – Court 2"
+  ],
+
+  Ramnad: [
+    "🏐 Match 3 vs Coimbatore – Court 1",
+    "🏐 Match 8 vs Madurai – Court 2",
+    "🏐 Match 13 vs Tuticorin – Court 1",
+    "🏐 Match 18 vs Chennai – Court 2",
+    "🏐 Match 23 vs Sivagangai – Court 1"
+  ],
+
+  Namakkal: [
+    "🏐 Match 5 vs Tiruppur – Court 1",
+    "🏐 Match 11 vs Vellore – Court 1",
+    "🏐 Match 20 vs Krishnagiri – Court 2",
+    "🏐 Match 25 vs Dharmapuri – Court 1",
+    "🏐 Match 29 vs Kanyakumari – Court 1"
+  ],
+
+  Tiruppur: [
+    "🏐 Match 5 vs Namakkal – Court 1",
+    "🏐 Match 10 vs Dharmapuri – Court 2",
+    "🏐 Match 15 vs Krishnagiri – Court 1",
+    "🏐 Match 24 vs Kanyakumari – Court 2",
+    "🏐 Match 30 vs Vellore – Court 2"
+  ],
+
+  Krishnagiri: [
+    "🏐 Match 7 vs Kanyakumari – Court 1",
+    "🏐 Match 4 vs Dharmapuri – Court 2",
+    "🏐 Match 15 vs Tiruppur – Court 1",
+    "🏐 Match 20 vs Namakkal – Court 2",
+    "🏐 Match 27 vs Vellore – Court 1"
+  ],
+
+  Dharmapuri: [
+    "🏐 Match 4 vs Krishnagiri – Court 2",
+    "🏐 Match 10 vs Tiruppur – Court 2",
+    "🏐 Match 16 vs Kanyakumari – Court 2",
+    "🏐 Match 21 vs Vellore – Court 1",
+    "🏐 Match 25 vs Namakkal – Court 1"
+  ],
+
+  Madurai: [
+    "🏐 Match 2 vs Tuticorin – Court 2",
+    "🏐 Match 8 vs Ramnad – Court 2",
+    "🏐 Match 12 vs Sivagangai – Court 2",
+    "🏐 Match 19 vs Coimbatore – Court 1",
+    "🏐 Match 26 vs Chennai – Court 2"
+  ],
+
+  Tuticorin: [
+    "🏐 Match 2 vs Madurai – Court 2",
+    "🏐 Match 9 vs Coimbatore – Court 1",
+    "🏐 Match 13 vs Ramnad – Court 1",
+    "🏐 Match 17 vs Sivagangai – Court 1",
+    "🏐 Match 22 vs Chennai – Court 2"
+  ],
+
+  Sivagangai: [
+    "🏐 Match 6 vs Chennai – Court 2",
+    "🏐 Match 12 vs Madurai – Court 2",
+    "🏐 Match 17 vs Tuticorin – Court 1",
+    "🏐 Match 23 vs Ramnad – Court 1",
+    "🏐 Match 28 vs Coimbatore – Court 2"
+  ],
+
+  Chennai: [
+    "🏐 Match 6 vs Sivagangai – Court 2",
+    "🏐 Match 14 vs Coimbatore – Court 2",
+    "🏐 Match 18 vs Ramnad – Court 2",
+    "🏐 Match 22 vs Tuticorin – Court 2",
+    "🏐 Match 26 vs Madurai – Court 2"
+  ]
+};
+
+
+  document.querySelectorAll(".team-tile").forEach(tile => {
+    tile.addEventListener("click", () => {
+      const team = tile.dataset.team;
+      document.getElementById("modalTitle").innerText = team;
+      const list = document.getElementById("matchList");
+      list.innerHTML = "";
+
+      (teamMatches[team] || ["No matches scheduled"]).forEach(m => {
+        const li = document.createElement("li");
+        li.innerHTML = m;
+        list.appendChild(li);
+      });
+
+      new bootstrap.Modal(document.getElementById("teamModal")).show();
+    });
+  });
+</script>
+
 </body>
 </html>
+
+
