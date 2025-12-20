@@ -51,7 +51,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.2);
     }
 
     .hero-content {
@@ -74,7 +74,7 @@
     .hero-content p.fs-4 {
       font-weight: 600;
       letter-spacing: 1px;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
     }
 
     .welcome-text {
@@ -82,7 +82,7 @@
       margin: 0 auto 40px;
       font-size: 24px;
       line-height: 1.8;
-      color: #0076fe;
+      color: white;
       font-weight: 500;
     }
 
@@ -130,6 +130,7 @@
       background: #005acc;
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      color: red;
     }
 
     /* ALTERNATE BACKGROUND */
@@ -149,6 +150,9 @@
 
     /* MOBILE */
     @media (max-width: 576px) {
+      .hero-content{
+        margin-top: 324px !important;
+      }
       .main-title {
         letter-spacing: 2px;
       }
