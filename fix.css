@@ -412,12 +412,34 @@ font-size: 0.9rem;
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
+
+.knockout-card {
+    width: 300px;
+}
+.knockout-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
   .knockout-wrapper {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    flex-direction: column;
   }
 
-  .knockout-column.center {
-    order: -1;
+  /* SEMIFINALS */
+  .knockout-column:nth-child(1) {
+    order: 1;
   }
+
+  /* 3rd PLACE */
+  .knockout-column:nth-child(3) {
+    order: 2;
+  }
+
+  /* FINAL (LAST) */
+  .knockout-column:nth-child(2) {
+    order: 3;
+  }
+}
 }
