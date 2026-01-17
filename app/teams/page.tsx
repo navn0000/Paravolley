@@ -2,24 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { teamImages } from "../(components)/constants/image";
 
 export default function TeamsPage() {
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
 
-  const teamImages: Record<string, string> = {
-    Coimbatore: "/images/coimbatore-players.jpg",
-    Chennai: "/images/chennai-players.jpg",
-    Madurai: "/images/madurai-players.jpg",
-    Thoothukudi: "/images/thoothukudi-players.jpg",
-    Kanyakumari: "/images/kanyakumari-players.jpg",
-    Vellore: "/images/vellore-players.jpg",
-    Ramnad: "/images/ramanad-players.jpg",
-    Sivagangai: "/images/sivagangai-players.jpg",
-    Namakkal: "/images/namakkal-players.jpg",
-    Krishnagiri: "/images/krishnagiri.jpg",
-    Tiruppur: "/images/tiruppur.jpg",
-    Dharmapuri: "/images/dharmapuri-players.jpg",
-  };
 
   const teamColors: Record<string, string> = {
     Coimbatore: "bg-[#0076fe]",
